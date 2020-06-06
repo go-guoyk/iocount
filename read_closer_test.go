@@ -15,6 +15,8 @@ func TestNewReadCloser(t *testing.T) {
 	o = NewTestReadWriteCloser()
 	r = NewReadCloser(o)
 
+	assert.Equal(t, o, r.ReadCloser())
+
 	buf = []byte("hello")
 
 	o.buf.Write(buf)
@@ -39,6 +41,8 @@ func TestNewReadCloser(t *testing.T) {
 	o = NewTestReadWriteCloser()
 	o.shouldFail = true
 	r = NewReadCloser(o)
+
+	assert.Equal(t, o, r.ReadCloser())
 
 	buf = []byte("hello")
 

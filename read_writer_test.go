@@ -15,6 +15,8 @@ func TestNewReadWriter(t *testing.T) {
 	o = NewTestReadWriteCloser()
 	r = NewReadWriter(o)
 
+	assert.Equal(t, o, r.ReadWriter())
+
 	buf = []byte("hello")
 
 	n, err = r.Write(buf)
@@ -39,6 +41,8 @@ func TestNewReadWriter(t *testing.T) {
 	o = NewTestReadWriteCloser()
 	o.shouldFail = true
 	r = NewReadWriter(o)
+
+	assert.Equal(t, o, r.ReadWriter())
 
 	buf = []byte("hello")
 
