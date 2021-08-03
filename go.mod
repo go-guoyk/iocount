@@ -1,4 +1,4 @@
-module github.com/guoyk93/iocount
+module go.guoyk.net/iocount
 
 go 1.14
 
